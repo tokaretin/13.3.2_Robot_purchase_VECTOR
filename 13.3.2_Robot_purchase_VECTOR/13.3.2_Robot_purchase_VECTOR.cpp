@@ -23,40 +23,39 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
 
 int main() {
     int n;
-    cout << "Введите количество роботов на витрине: ";
-    cin >> n;
+    std::cout << "Enter the number of robots in the window: ";
+    std::cin >> n;
 
     // Создаем вектор для хранения номеров роботов
-    vector<int> robots(n);
+    std::vector<int> robots(n);
 
-    cout << "Введите номера роботов:" << endl;
+    std::cout << "Enter the robot numbers: " << '\n';
     for (int i = 0; i < n; i++) {
-        cin >> robots[i];
+        std::cin >> robots[i];
     }
 
     int k;
-    cout << "Введите количество запросов: ";
-    cin >> k;
+    std::cout << "Enter the number of queries: ";
+    std::cin >> k;
 
-    cout << "Введите запросы вида \"1 n\" или \"2 m\":" << endl;
+    std::cout << "Type queries for the view \"1 n\" или \"2 m\": " << '\n';
     for (int i = 0; i < k; i++) {
         int queryType;
-        cin >> queryType;
+        std::cin >> queryType;
 
         if (queryType == 1) {
             int newRobot;
-            cin >> newRobot;
+            std::cin >> newRobot;
 
             // Добавляем нового робота в конец витрины
             robots.push_back(newRobot);
         }
         else if (queryType == 2) {
             int index;
-            cin >> index;
+            std::cin >> index;
 
             // Проверяем, чтобы индекс был в допустимом диапазоне
             if (index >= 0 && index < robots.size()) {
@@ -64,19 +63,19 @@ int main() {
                 robots.erase(robots.begin() + index);
             }
             else {
-                cout << "Неверный индекс робота. Пропускаем операцию." << endl;
+                std::cout << "Incorrect robot index. Skipping operation." << '\n';
             }
         }
         else {
-            cout << "Неверный тип запроса. Пропускаем операцию." << endl;
+            std::cout << "The request type is not valid. Skipping the operation." << '\n';
         }
     }
 
-    cout << "Оставшиеся роботы: ";
+    std::cout << "Remaining robots: ";
     for (int i = 0; i < robots.size(); i++) {
-        cout << robots[i] << " ";
+        std::cout << robots[i] << " ";
     }
-    cout << endl;
+    std::cout << '\n';
 
     return 0;
 }
